@@ -1,0 +1,61 @@
+Project Overview 
+    When I first strated this project I wanted to create a web development applictaion that could take 
+    an entered summoner name, region, and retrieve a puuid, the puuid is the internal way the database
+    riot uses tracks an account, I had made the mistake of beginning with the front-end and when I got to 
+    working on the backend I realized that retrieving the puuid and then using that puuid to access the 
+    other apis neccessary to then retrieve that data and sort it would be to complex and use too many 
+    requests. From this point I pivoted and decicded to create a web development site that would utilize
+    only my puuid which I would hardcode in, in order to then find my best champion based on kda, wins 
+    and matches played.
+
+Usage Guidelines
+    I was unable to get the web application to properly function which I will dive into in a later 
+    section, however, I was able to create the python code neccessary to retrieve the information 
+    I wanted and organize the data. This code is under test.py and will work with until wednesday 
+    at 6:27am. In order to run the code past this time the api_key will have to be changed with a 
+    newly regenerated key. 
+
+Dependencies 
+    api_key - RGAPI-cd6f26cf-a784-4618-bb4b-58d6f9a241c0
+    PUUID - 3uamI3EKz73OMvxFeDZ7wm6cN8TYvgFBmvIkKe3btn5jSaoyzZ_9Z8DhMLC6A2dTiNwHBiypUJ2GAw
+    match_id_url - https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count={count}&api_key={api_key}
+    match_data_url - https://americas.api.riotgames.com/lol/match/v5/matches/{match_id}?api_key={api_key}
+
+Project Structure
+    The final project is under the top_champions_stats folder. From here the main.py which is the 
+    flask portion of my code. There are then three folders constructe at this level comprised of 
+    , static, and templates. backend is the python code which retrieves the code and sorts it (like in 
+    test.py) however, it is slightly altered to work with the web development page. The next folder 
+    is comprised of a css and js folder which inside are the stylesheet and javascript. The final 
+    folder is templates which is home to the frontend or html. 
+
+Acknowledgements 
+    I used the following website to understand how to retrieve the data from riot. 
+    https://medium.com/the-esports-analyst-club-by-itero-gaming/becoming-a-lol-analyst-an-introduction-to-using-the-riot-api-bb145ec8eb50 
+    Additionally, I also used the video series on youtube by the same individual.
+     https://www.youtube.com/watch?v=jkzq9j5yeT8&list=PL3vL1pnMCbUERqllcwhcvEJbKum-M9zT5 
+    I also used ChatGPT to debug my code. I had used ChatGPT in a private browser as it does not hit 
+    users with a limit like it does when you are signed in. I tried to sign in after I was finished 
+    however, I got the message "Oops! We ran into an issue while signing you in, please take a 
+    break and try again soon." As such I went back and recreated the questions that I had 
+    asked ChatGPT and cited specifc areas that I debugged. 
+
+Reflection
+    From this project I learned the importance of starting with the backend and not the front-end. 
+    Starting with the backend was a waste of time as I was unable to use the front-end that I had 
+    created. When I had gotten to creating the backend I had realized I would need to pivot. 
+    When I had pivoted I was able to create the python code to retrieve and sort the data I wanted 
+    thanks to the news article and youtube video by Jack J on how to use the API. After this point
+    is where I got stuck. I had went through multiple iterations, I had tried adapting my python 
+    code with fastapi and flask. I first tried using fastapi with an altered version of my test.py code
+    however, I could not get the code to function properly. I then tried using flask and reference 
+    an altered version of test.py under champion_stats. However in both instances I couldn't get 
+    fastapi to work properly to display the desired information on the web application. I had 
+    created a basic front-end and java-script interactions to show when the data is being fetched 
+    and when it was fetched put the data into two tables.However, I was unable to get any of the code 
+    to pass through correctly I had tried sorting the file structure many times over and tried
+    different structures, however I could not get any of them to work. I tried debugging with 
+    ChatGPT and had created practice demo, demo2 and Metaselect repositories to try different structures 
+    and fastapi and flask but I simply could not get any of them to function properly. From this 
+    project I learned the importance of starting with the foundation of the task so that there is 
+    enough time to ask for help.

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Champions Stats</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Top Champions Stats</h1>
+
+        {% if top_champions %}
+            <div>
+                {% for count, champions in top_champions.items() %}
+                    <h2>Top 5 Champions for the Last {{ count }} Games</h2> 
+                    <ul>
+                        {% for champion in champions %}
+                            <li>
+                                <strong>Champion:</strong> {{ champion.champion }}<br>
+                                <strong>Average KDA:</strong> {{ champion.avg_kda | round(2) }}<br>
+                                <strong>Win Rate:</strong> {{ champion.win_rate * 100 | round(2) }}%<br>
+                                <strong>Games Played:</strong> {{ champion.games_played }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
